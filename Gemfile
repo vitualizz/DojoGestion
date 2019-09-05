@@ -44,5 +44,8 @@ gem 'haml', '~> 5.1'
 gem 'materialize-sass', '~> 1'
 gem 'vueonrails', '~> 0.3.0'
 
+# Auth
+gem 'devise', '~> 4.7'
+
 # Tenants
 gem 'apartment', github: 'influitive/apartment', branch: 'development'

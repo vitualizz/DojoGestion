@@ -45,4 +45,4 @@ gem 'materialize-sass', '~> 1'
 gem 'vueonrails', '~> 0.3.0'
 
 # Tenants
-gem 'apartment', '~> 2.2', '>= 2.2.1'
+gem 'apartment', github: 'influitive/apartment', branch: 'development'

@@ -5,7 +5,7 @@ ruby '2.6.3'
 
 gem 'rails', '~> 6.0.0'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.1'
 
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
@@ -43,6 +43,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml', '~> 5.1'
 gem 'materialize-sass', '~> 1'
 gem 'vueonrails', '~> 0.3.0'
+gem 'simple_form', '~> 4.1'
 
 # Auth
 gem 'devise', '~> 4.7'

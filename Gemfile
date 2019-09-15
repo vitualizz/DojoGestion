@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :assets do
+  gem 'sass', '~> 3.4', '>= 3.4.22'
   gem 'sass-rails', '~> 6.0'
   gem 'coffee-rails', '~> 5.0'
   gem 'uglifier', '~> 4.1'

@@ -12,9 +12,9 @@ import TurbolinksAdapter from 'vue-turbolinks'
 Vue.use(TurbolinksAdapter)
 
 components.keys().forEach((component) =>{
-  component = component.match(/\w[\w.]+$/)
-  name = component[0].match(/^\w*/)[0]
-  Vue.component(name, () => import(`${component.input}`))
+  name = component.match(/[\w-]+?(?=\.)/)[0]
+  component = component.match(/\w.*$/)[0]
+  Vue.component(name, () => import(`./components/${component}`))
 })
 
 

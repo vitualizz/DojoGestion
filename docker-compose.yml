@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - dg-postgres:/var/lib/postgresql/data
   web:
     build: .
     command: bundle exec rails s puma -p 3000 -b '0.0.0.0'
@@ -13,3 +13,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
+volumes:
+  dg-postgres:
+    driver: local

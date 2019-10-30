@@ -42,7 +42,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml', '~> 5.1'
-gem 'simple_form', '~> 4.1'
+gem 'simple_form', '~> 5.0'
 
 # Auth
 gem 'devise', '~> 4.7'

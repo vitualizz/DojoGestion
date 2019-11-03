@@ -4,7 +4,8 @@ module.exports = {
     if (this.level == "alert") { this.level = "error"}
     this.$message({
       message: this.msg,
-      type: this.level
+      type: this.level,
+      duration: 5000
     })
   }
 }

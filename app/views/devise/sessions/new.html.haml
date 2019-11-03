@@ -1,8 +1,13 @@
-%h2 Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :username, required: false, autofocus: true
-    = f.input :password, required: false, input_html: { autocomplete: "current-password" }
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in"
+.box
+  %h2 Log in
+  %el-form{"label-width": "120px", ref: "form", action: session_path(resource_name), method: :post}
+    %el-input.is-hidden{name: "authenticity_token", value: "#{form_authenticity_token}"}
+    %el-form-item{label: "Username"}
+      %el-input{"v-model": "form.username"}
+    %el-form-item{label: "Password"}
+      %el-input{type: "password", "v-model": "form.password"}
+    - if devise_mapping.rememberable?
+      %el-form-item{label: "Remember Me"}
+        %el-switch{"v-model": "form.remember_me"}
+    %el-form-item{size: "large"}
+      %el-button{"native-type": "submit", type: "primary"}= "Log in"

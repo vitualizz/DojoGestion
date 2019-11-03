@@ -9,4 +9,5 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     #app
+      = render partial: "shared/flash_messages", flash: flash
       = yield

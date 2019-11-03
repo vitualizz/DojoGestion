@@ -1,0 +1,5 @@
+%div
+  - flash.each do |level, messages|
+    - [messages].each do |message|
+      %flash-messages{level: level, msg: message}
+

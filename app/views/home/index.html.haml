@@ -1,5 +1,8 @@
-.container.has-text-centered
-  %saludo
-%template#saludo
-  %div
+- if user_signed_in?
+  = link_to "Log Out", destroy_user_session_path, method: :delete
+- else
+  .full_page.is-flex
+    .container-form
+      %login
+  %template#login
     = render template: 'devise/sessions/new.html.haml'

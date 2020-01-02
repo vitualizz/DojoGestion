@@ -7,5 +7,6 @@ WORKDIR /Dojo
 COPY Gemfile /Dojo/Gemfile
 COPY Gemfile.lock /Dojo/Gemfile.lock
 RUN bundle install
+RUN yarn install --check-files
 RUN chown -R $USER:$USER .
 COPY . /Dojo

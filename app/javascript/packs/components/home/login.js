@@ -2,11 +2,20 @@ module.exports = {
   template: '#login',
   data() {
     return {
-      form: {
-        username: '',
-        password: '',
-        remember_me: false
-      }
+      username: '',
+      password: '',
+      user_type: 'teacher',
+      remember_me: false
+    }
+  },
+  computed: {
+    changeAction() {
+      return `/${this.user_type}s/sign_in`
+    }
+  },
+  methods: {
+    reloadField(field) {
+      return `${this.user_type}[${field}]`
     }
   }
 }

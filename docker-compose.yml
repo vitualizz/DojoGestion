@@ -4,6 +4,7 @@ services:
     image: postgres
     volumes:
       - dg-postgres:/var/lib/postgresql/data
+      - ./node_modules:/portafolio/node_modules
   web:
     build: .
     command: bundle exec rails s puma -p 3000 -b '0.0.0.0'

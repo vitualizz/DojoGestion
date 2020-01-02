@@ -1,13 +1,17 @@
 .box
-  %h2 Log in
-  %el-form{"label-width": "120px", ref: "form", action: session_path(resource_name), method: :post}
-    %el-input.is-hidden{name: "authenticity_token", value: "#{form_authenticity_token}"}
-    %el-form-item{label: "Username"}
-      %el-input{"v-model": "form.username"}
-    %el-form-item{label: "Password"}
-      %el-input{type: "password", "v-model": "form.password"}
-    - if devise_mapping.rememberable?
-      %el-form-item{label: "Remember Me"}
-        %el-switch{"v-model": "form.remember_me"}
-    %el-form-item{size: "large"}
-      %el-button{"native-type": "submit", type: "primary"}= "Log in"
+  %el-form{":action": "changeAction", method: "post"}
+    %input.is-hidden{autocomplete: "off", name: "authenticity_token", type: "text"}
+    - ["username", "password", "user_type", "submit"].each do |field|
+      - case field
+      - when 'submit'
+        %button.el-button.el-button--primary.el-button--large{type: field}
+          %span login
+      - when 'user_type'
+        %el-form-item{label: field}
+          %el-select{"v-model": field}
+            - User::TYPES.each do |type|
+              %el-option{label: type, value: type}
+      - else
+        %el-form-item{label: field}
+          .el-input
+            %input.el-input__inner{"v-model": field, ":name": "reloadField('#{field}')", type: "#{field if field.eql?('password')}"}

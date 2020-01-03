@@ -1,17 +1,15 @@
 .box
   %el-form{":action": "changeAction", method: "post"}
     %input.is-hidden{autocomplete: "off", name: "authenticity_token", type: "text"}
-    - ["username", "password", "user_type", "submit"].each do |field|
-      - case field
-      - when 'submit'
-        %button.el-button.el-button--primary.el-button--large{type: field}
-          %span login
-      - when 'user_type'
-        %el-form-item{label: field}
+    - ["username", "password", "user_type"].each do |field|
+      %el-form-item{label: t_model(field)}
+        - case field
+        - when 'user_type'
           %el-select{"v-model": field}
             - User::TYPES.each do |type|
-              %el-option{label: type, value: type}
-      - else
-        %el-form-item{label: field}
+              %el-option{label: t_model("user_types.#{type}"), value: type}
+        - else
           .el-input
             %input.el-input__inner{"v-model": field, ":name": "reloadField('#{field}')", type: "#{field if field.eql?('password')}"}
+    %el-form-item
+      %el-button{type: 'primary'}='Submit'

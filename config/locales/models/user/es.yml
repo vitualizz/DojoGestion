@@ -1,0 +1,8 @@
+es:
+  username: Usuario
+  password: Contraseña
+  user_type: Tipo de usuario
+  user_types:
+    student: Estudiante
+    teacher: Profesor
+    parent: Tutor

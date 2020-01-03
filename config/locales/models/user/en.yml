@@ -1,0 +1,8 @@
+en:
+  username: Username
+  password: Password
+  user_type: User type
+  user_types:
+    student: Student
+    teacher: Teacher
+    parent: Parent

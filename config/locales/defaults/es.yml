@@ -1,4 +1,6 @@
 es:
+  form:
+    login: Iniciar Sesión
   activerecord:
     errors:
       messages:

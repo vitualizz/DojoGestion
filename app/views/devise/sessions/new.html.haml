@@ -1,6 +1,6 @@
 .box
   %el-form{":action": "changeAction", method: "post"}
-    %input.is-hidden{autocomplete: "off", name: "authenticity_token", type: "text"}
+    %el-input.is-hidden{name: "authenticity_token", value: form_authenticity_token}
     - ["username", "password", "user_type"].each do |field|
       %el-form-item{label: t(field)}
         - case field
@@ -11,5 +11,5 @@
         - else
           .el-input
             %input.el-input__inner{"v-model": field, ":name": "reloadField('#{field}')", type: "#{field if field.eql?('password')}"}
-    %el-form-item
-      %el-button{type: 'primary'}=t('login', scope: :form)
+    %button.el-button.el-button--primary.el-button--large{type: 'submit'}
+      %span=t('login', scope: :form)

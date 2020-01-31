@@ -5,7 +5,7 @@ require("channels")
 require("jquery")
 
 const string = require("underscore.string");
-const components = require.context("./components", true, /^\.\/.*\.js$/);
+const components = require.context("./components", true, /^\.\/.*\.(js|vue)$/);
 
 import Vue from 'vue/dist/vue.esm'
 import ElementUI from 'element-ui'

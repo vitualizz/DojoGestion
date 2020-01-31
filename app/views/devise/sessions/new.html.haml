@@ -3,8 +3,7 @@
     %el-input.is-hidden{name: "authenticity_token", value: form_authenticity_token}
     - ["username", "password", "user_type"].each do |field|
       %el-form-item{label: t(field)}
-        - case field
-        - when 'user_type'
+        - if field.eql?('user_type')
           %el-select{"v-model": field}
             - User::TYPES.each do |type|
               %el-option{label: t("user_types.#{type}"), value: type}

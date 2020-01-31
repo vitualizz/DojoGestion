@@ -10,4 +10,6 @@
   %body
     #app
       = render partial: "shared/flash_messages", flash: flash
-      = yield
+      %navmenu{username: current_user.username, type: current_user.type}
+      .container
+        = yield

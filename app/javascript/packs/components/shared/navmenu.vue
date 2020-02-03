@@ -1,21 +1,14 @@
 <template lang='pug'>
   #main_menu
-    el-menu(collapse=false)
-      el-menu-item
-        i.el-icon-s-unfold
-      el-menu-item(index='1')
-        el-avatar(size: "user.avatar.size", ":src"="user.avatar.src")
-        span(slot="title") {{ user.username }}
-      el-menu-item(index='2')
-        i.el-icon-notebook-2
-        span(slot="title") Notas
+    sidebar-menu(:menu="menu")
 </template>
 
 <script>
   export default {
-    props: ['username'],
+    props: ['username', 'navbar'],
     data() {
       return {
+        isCollapsible: false,
         user: {
           username: this.username,
           type: this.type,
@@ -23,7 +16,8 @@
             size: 'small',
             src: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
           }
-        }
+        },
+        menu: JSON.parse(this.navbar)
       }
     }
   }

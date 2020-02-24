@@ -8,9 +8,8 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    #app
+    #app.is-flex
       = render partial: "shared/flash_messages", flash: flash
-      /%sidebar-menu{":menu": navbar_json}
-      %navmenu{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
-      .container
+      %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
+      %main.is-flex
         = yield

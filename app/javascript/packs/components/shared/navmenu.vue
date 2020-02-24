@@ -1,6 +1,5 @@
 <template lang='pug'>
-  #main_menu
-    sidebar-menu(:menu="menu")
+  sidebar-menu(:menu="menu")
 </template>
 
 <script>

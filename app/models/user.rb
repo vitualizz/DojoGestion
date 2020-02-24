@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   TYPES.each do |type|
     define_method "is_#{type}?" do
-      self.type == type
+      self.type.downcase == type
     end
   end
  

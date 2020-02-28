@@ -1,5 +1,5 @@
 <template lang='pug'>
-  sidebar-menu(:menu="menu")
+  sidebar-menu(:menu="menu", :collapsed="isCollapsible")
 </template>
 
 <script>
@@ -7,7 +7,7 @@
     props: ['username', 'navbar'],
     data() {
       return {
-        isCollapsible: false,
+        isCollapsible: true,
         user: {
           username: this.username,
           type: this.type,

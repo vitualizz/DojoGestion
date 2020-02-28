@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def will_save_change_to_email?
     false
   end
+
+  def full_name
+    self.fname + ' ' + self.lname
+  end
 end

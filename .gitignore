@@ -32,4 +32,4 @@ yarn-debug.log*
 
 # Docker
 docker-compose.yml
-Dockerfile.yml
+Dockerfile

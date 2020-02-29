@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - dg-postgres:/var/lib/postgresql/data
+      - postgres:/var/lib/postgresql/data
       - ./node_modules:/portafolio/node_modules
   web:
     build: .
@@ -17,5 +17,5 @@ services:
     tty: true
     stdin_open: true
 volumes:
-  dg-postgres:
+  postgres:
     driver: local

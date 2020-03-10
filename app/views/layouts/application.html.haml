@@ -9,12 +9,15 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     #app.is-flex
-      = render partial: "shared/flash_messages", flash: flash
-      %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
-      %router-link{to: "/"}= "Go to Foo"
-      %router-link{to: "qualifications"}= "Go to Bar"
-      %main.is-flex
-        %router-view
-    %template{id: (params[:controller] + '_' + params[:action])}
-      .yield
+      - if user_signed_in?
+        = render partial: "shared/flash_messages", flash: flash
+        %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
+        %router-link{to: "/"}= "Go to Foo"
+        %router-link{to: "qualifications"}= "Go to Bar"
+        %main.is-flex
+          %router-view
+        %template{id: (params[:controller] + '_' + params[:action])}
+          .yield
+            = yield
+      - else
         = yield

@@ -43,20 +43,15 @@ const router = new VueRouter({
 
 document.addEventListener('turbolinks:load', () => {
   $('template').appendTo('body')
-$('a').bind('click', function (event) {
-    $('body template').load(window.location.href)
-    console.log('FOO!');
-  });
 
+  $('a').on('ajax:before', function (event) {
+    $('template').load(window.location.href)
+  });
 
   new Vue({
     el: '#app',
     router
   })
-
-  //$("a").click(function(){
-    //$('template').load(window.location.href)
-  //});
 
 })
 

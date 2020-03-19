@@ -28,29 +28,11 @@ components.keys().forEach((component) =>{
   Vue.component(name, () => import(`./components/${component}`))
 })
 
-const Foo = { template: '#home_index' }
-const Bar = { template: '#qualifications_index' }
-
-const routes = [
-  { path: '/', component: Foo },
-  { path: '/qualifications', component: Bar }
-]
-
-const router = new VueRouter({
-  mode: 'history',
-  routes
-})
-
 document.addEventListener('turbolinks:load', () => {
   $('template').appendTo('body')
 
-  $('a').on('ajax:before', function (event) {
-    $('template').load(window.location.href)
-  });
-
   new Vue({
-    el: '#app',
-    router
+    el: '#app'
   })
 
 })

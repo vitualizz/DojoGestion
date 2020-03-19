@@ -9,7 +9,7 @@ module NavbarHelper
       menu << { title: "teachers", href: root_path, icon: 'el-icon-s-custom' }
     end
     if current_user.is_student? || current_user.is_teacher?
-      menu << { title: "qualifications", href: root_path, icon: 'el-icon-notebook-2' }
+      menu << { title: "qualifications", href: qualifications_path, icon: 'el-icon-notebook-2' }
     end
     menu
   end

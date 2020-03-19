@@ -1,1 +1,8 @@
-%h1= current_user.full_name
+- if user_signed_in?
+  %h1= current_user.full_name
+- else
+  .full_page.is-flex.is-absolute
+    .container-form
+      %login
+  %template#login
+    = render template: 'devise/sessions/new.html.haml'

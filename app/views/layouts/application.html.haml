@@ -9,19 +9,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     #app.is-flex
-      - if user_signed_in?
-        = render partial: "shared/flash_messages", flash: flash
-        %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
-        %router-link{to: "/"}= "Go to Foo"
-        %router-link{to: "qualifications"}= "Go to Bar"
-        %main.is-flex
-          %router-view
-        %template{id: (params[:controller] + '_' + params[:action])}
-          .yield
-            = yield
-      - else
-        .full_page.is-flex.is-absolute
-          .container-form
-            %login
-        %template#login
-          = render template: 'devise/sessions/new.html.haml'
+      = render partial: "shared/flash_messages", flash: flash
+      %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
+      %main.is-flex
+        = yield

@@ -10,6 +10,8 @@
   %body
     #app.is-flex
       = render partial: "shared/flash_messages", flash: flash
-      %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
+      - if user_signed_in?
+        %div{"data-turbolinks" => "false"}
+          %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json}
       %main.is-flex
         = yield

@@ -19,7 +19,6 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 Vue.use(TurbolinksAdapter)
 Vue.use(ElementUI)
 Vue.use(VueSidebarMenu)
-Vue.use(VueRouter)
 
 
 components.keys().forEach((component) =>{

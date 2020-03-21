@@ -11,7 +11,8 @@ import Vue from 'vue/dist/vue.esm'
 import ElementUI from 'element-ui'
 import TurbolinksAdapter from 'vue-turbolinks'
 import VueSidebarMenu from 'vue-sidebar-menu'
-import VueRouter from 'vue-router'
+
+import "@fortawesome/fontawesome-free/js/fontawesome"
 
 import 'element-ui/lib/theme-chalk/index.css'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'

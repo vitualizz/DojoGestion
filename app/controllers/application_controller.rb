@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   devise_group :user, contains: [:teacher, :student, :parent]
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_schema
   before_action :validate_session_new

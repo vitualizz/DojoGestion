@@ -11,6 +11,7 @@ module NavbarHelper
     if current_user.is_student? || current_user.is_teacher?
       menu << { title: "qualifications", href: qualifications_path, icon: 'el-icon-notebook-2' }
     end
+    menu << { title: "Cerrar Session", href: destroy_session_path(current_user), icon: 'fas fa-sign-out-alt', attributes: { "data-method": "delete"}}
     menu
   end
 end

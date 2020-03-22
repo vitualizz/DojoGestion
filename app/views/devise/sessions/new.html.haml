@@ -1,14 +1,19 @@
-.box
-  %el-form{":action": "changeAction", method: "post"}
-    %el-input.is-hidden{name: "authenticity_token", value: form_authenticity_token}
-    - ["username", "password", "user_type"].each do |field|
-      %el-form-item{label: t(field)}
-        - if field.eql?('user_type')
-          %el-select{"v-model": field}
-            - User::TYPES.each do |type|
-              %el-option{label: t("user_types.#{type}"), value: type}
-        - else
-          .el-input
-            %input.el-input__inner{"v-model": field, ":name": "reloadField('#{field}')", type: "#{field if field.eql?('password')}"}
-    %button.el-button.el-button--primary.el-button--large{type: 'submit'}
-      %span=t('login', scope: :form)
+.full_page.is-flex.is-absolute
+  .container-form
+    %login
+
+%template#login
+  .box
+    %el-form{":action": "changeAction", method: "post"}
+      %el-input.is-hidden{name: "authenticity_token", value: form_authenticity_token}
+      - ["username", "password", "user_type"].each do |field|
+        %el-form-item{label: t(field)}
+          - if field.eql?('user_type')
+            %el-select{"v-model": field}
+              - User::TYPES.each do |type|
+                %el-option{label: t("user_types.#{type}"), value: type}
+          - else
+            .el-input
+              %input.el-input__inner{"v-model": field, ":name": "reloadField('#{field}')", type: "#{field if field.eql?('password')}"}
+      %button.el-button.el-button--primary.el-button--large{type: 'submit'}
+        %span=t('login', scope: :form)

@@ -9,4 +9,8 @@ class School < ApplicationRecord
   def create_tenant
     Apartment::Tenant.create(subdomain)
   end
+
+  def create_setting
+    Setting.create
+  end
 end

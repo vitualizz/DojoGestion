@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_schema
   before_action :validate_session_new
+  before_action :setting
+
+  private
+
+  def setting
+    @setting = Setting.first
+  end
 
   protected
 

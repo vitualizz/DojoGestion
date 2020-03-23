@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_072805) do
+ActiveRecord::Schema.define(version: 2020_03_22_233353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "parents", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -25,6 +31,11 @@ ActiveRecord::Schema.define(version: 2019_11_02_072805) do
     t.string "subdomain"
     t.string "email"
     t.string "locale"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "students", force: :cascade do |t|

@@ -1,5 +1,5 @@
 <template lang='pug'>
-  sidebar-menu(:menu="menu", :collapsed="isCollapsible")
+  sidebar-menu(:menu="menu", :collapsed="isCollapsible", @toggle-collapse='onToggleCollapse')
 </template>
 
 <script>
@@ -7,7 +7,7 @@
     props: ['username', 'navbar'],
     data() {
       return {
-        isCollapsible: true,
+        isCollapsible: Boolean,
         user: {
           username: this.username,
           type: this.type,
@@ -17,6 +17,14 @@
           }
         },
         menu: JSON.parse(this.navbar)
+      }
+    },
+    created() {
+      this.isCollapsible = localStorage.getItem('navbarCollapsed') == "true"
+    },
+    methods: {
+      onToggleCollapse(collapsed) {
+        localStorage.setItem('navbarCollapsed', collapsed)
       }
     }
   }

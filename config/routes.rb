@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  # Devise
   devise_for :teachers, :students, :parents
   ["teacher", "student", "parent"].each do |user|
     devise_scope user.intern do
@@ -8,6 +10,14 @@ Rails.application.routes.draw do
     end
   end
   root 'home#index'
+
+  # Main
+  resources :areas, only: [:index]
   resources :qualifications, only: [:index]
-  #devise_for :users
+
+  # Setting
+  resources :settings, only: [:index, :update]
+  namespace :settings do
+    resources :areas, only: [:index]
+  end
 end

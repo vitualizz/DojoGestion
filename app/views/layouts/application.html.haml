@@ -5,12 +5,14 @@
     %title Dojo
     = csrf_meta_tags
     = csp_meta_tag
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     #app.is-flex
-      = render partial: "shared/flash_messages", flash: flash
       - if user_signed_in?
         %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json, "data-turbolinks": "false"}
       %main
         = yield
+    :javascript
+      flashMessage(#{raw flash.map{|level, messages| [level, messages]}})

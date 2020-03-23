@@ -4,6 +4,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 
+require("packs/functions/flash_messages")
+
 const string = require("underscore.string");
 const components = require.context("./components", true, /^\.\/.*\.(js|vue)$/);
 
@@ -21,19 +23,17 @@ Vue.use(TurbolinksAdapter)
 Vue.use(ElementUI)
 Vue.use(VueSidebarMenu)
 
-
 components.keys().forEach((component) =>{
   name = component.match(/[\w-]+?(?=\.)/)[0]
   component = component.match(/\w.*$/)[0]
   Vue.component(name, () => import(`./components/${component}`))
 })
 
-document.addEventListener('turbolinks:load', () => {
+$( document ).ready(function() {
   $('template').appendTo('body')
 
   new Vue({
     el: '#app'
   })
-
-})
+});
 

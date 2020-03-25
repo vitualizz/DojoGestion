@@ -6,6 +6,11 @@ module Settings
       @areas = Area.all
     end
 
+    def new
+      @area = Area.new
+      render partial: "form"
+    end
+
     private
 
     def set_area

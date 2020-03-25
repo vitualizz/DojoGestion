@@ -21,6 +21,5 @@ module NavbarHelper
   def settings_submenu
     menu = []
     menu << { title: "General", href: settings_path}
-    menu << { title: "Areas", href: settings_areas_path}
   end
 end

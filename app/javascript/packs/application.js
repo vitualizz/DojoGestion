@@ -19,6 +19,8 @@ import "@fortawesome/fontawesome-free/js/fontawesome"
 import 'element-ui/lib/theme-chalk/index.css'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
+import {modals} from './functions/modals'
+
 Vue.use(TurbolinksAdapter)
 Vue.use(ElementUI)
 Vue.use(VueSidebarMenu)
@@ -29,11 +31,14 @@ components.keys().forEach((component) =>{
   Vue.component(name, () => import(`./components/${component}`))
 })
 
-$( document ).ready(function() {
+
+$( document ).on('turbolinks:load', function() {
   $('template').appendTo('body')
 
   new Vue({
     el: '#app'
   })
+
+  modals()
 });
 

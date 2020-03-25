@@ -12,7 +12,7 @@
     #app.is-flex
       - if user_signed_in?
         %navmenu.is-relative{username: current_user.username, type: current_user.type, navbar: navbar.to_json, "data-turbolinks": "false"}
-      %main
+      %main.full_width
         = yield
     :javascript
       flashMessage(#{raw flash.map{|level, messages| [level, messages]}})

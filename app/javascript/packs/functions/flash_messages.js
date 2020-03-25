@@ -9,5 +9,12 @@ window.flashMessage = function(messages) {
       duration: 5000
     })
   })
+}
 
+window.flashCall = function(type, message) {
+  Vue.prototype.$message({
+    message: message,
+    type: type,
+    duration: 5000
+  })
 }

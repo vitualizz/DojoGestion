@@ -11,7 +11,22 @@ module Settings
       render partial: "form"
     end
 
+    def create
+      @area = Area.new(area_params)
+      respond_save @area
+    end
+
+    def edit
+      render partial: "form"
+    end
+
+    def update
+      respond_save @area
+    end
+
     private
+
+
 
     def set_area
       @area = Area.find(params[:id])

@@ -19,7 +19,7 @@ import "@fortawesome/fontawesome-free/js/fontawesome"
 import 'element-ui/lib/theme-chalk/index.css'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
-import {modals} from './functions/modals'
+import { modals } from './functions/modals'
 
 Vue.use(TurbolinksAdapter)
 Vue.use(ElementUI)

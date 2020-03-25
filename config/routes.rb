@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   # Setting
   resources :settings, only: [:index, :update]
   namespace :settings do
-    resources :areas, only: [:index, :new]
+    resources :areas
   end
 end

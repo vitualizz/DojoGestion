@@ -1,10 +1,9 @@
-.modal-background
-.modal-card
-  %header.modal-card-head
-    %p.modal-card-title Modal title
-    %button.close-modal.delete{"aria-label" => "close"}
-  %section.modal-card-body
-    %p 123
-  %footer.modal-card-foot
-    %button.button.is-success Save changes
-    %button.button Cancel
+= simple_form_for [:settings, @area], remote: true do |f|
+  %header
+    %p Area
+  %section
+    .field
+      .control
+        = f.input :name
+  %footer
+    = f.button :submit, class: "is-success"

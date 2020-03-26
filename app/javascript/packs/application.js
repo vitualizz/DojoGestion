@@ -13,17 +13,23 @@ import Vue from 'vue/dist/vue.esm'
 import ElementUI from 'element-ui'
 import TurbolinksAdapter from 'vue-turbolinks'
 import VueSidebarMenu from 'vue-sidebar-menu'
+import Vuetable from 'vuetable-2/dist/vuetable-2'
 
 import "@fortawesome/fontawesome-free/js/fontawesome"
 
 import 'element-ui/lib/theme-chalk/index.css'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
-import { modals } from './functions/modals'
+import { Modal } from './functions/modals'
 
 Vue.use(TurbolinksAdapter)
 Vue.use(ElementUI)
 Vue.use(VueSidebarMenu)
+
+Vue.component("vuetable", Vuetable);
+Vue.component("vuetable-pagination",  Vuetable.VuetablePagination);
+Vue.component("vuetable-pagination-dropdown", Vuetable.VueTablePaginationDropDown);
+Vue.component("vuetable-pagination-info", Vuetable.VueTablePaginationInfo);
 
 components.keys().forEach((component) =>{
   name = component.match(/[\w-]+?(?=\.)/)[0]
@@ -32,13 +38,11 @@ components.keys().forEach((component) =>{
 })
 
 
-$( document ).on('turbolinks:load', function() {
+$( document ).ready(function() {
   $('template').appendTo('body')
 
   new Vue({
     el: '#app'
   })
-
-  modals()
+  Modal()
 });
-

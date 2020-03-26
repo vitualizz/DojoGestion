@@ -41,7 +41,11 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Template
 gem 'haml', '~> 5.1'
+
+# Form
 gem 'simple_form', '~> 5.0'
 
 # Auth
@@ -49,3 +53,9 @@ gem 'devise', '~> 4.7'
 
 # Tenants
 gem 'apartment', github: 'influitive/apartment', branch: 'development'
+
+# Json
+gem 'fast_jsonapi', '~> 1.5'
+
+# Paginate
+gem 'will_paginate', '~> 3.1.0'

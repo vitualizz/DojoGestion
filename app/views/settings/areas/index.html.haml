@@ -1,19 +1,5 @@
 %h1 Listing areas
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th
-      //%th
-
-  %tbody
-    - @areas.each do |area|
-      %tr
-        %td= area.name
-        %td= link_to 'Edit', edit_settings_area_path(area), remote: true, data: { modal: true }
-        //%td= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
+%area_datatable{"api": settings_areas_path(format: "json")}
 
 = link_to "New", new_settings_area_path, remote: true, data: { modal: true }

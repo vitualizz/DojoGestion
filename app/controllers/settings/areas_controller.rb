@@ -4,6 +4,10 @@ module Settings
 
     def index
       @areas = Area.all
+      respond_to do |format|
+        format.html
+        format.json { render json: Datatable::Setting::AreaSerializer.new(@areas) }
+      end
     end
 
     def new

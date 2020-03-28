@@ -6,7 +6,7 @@ module Settings
       @areas = Area.all
       respond_to do |format|
         format.html
-        format.json { render json: Datatable::Setting::AreaSerializer.new(@areas) }
+        format.json { render json: Setting::AreaDatatable.new(params, path: settings_areas_path) }
       end
     end
 
@@ -17,7 +17,7 @@ module Settings
 
     def create
       @area = Area.new(area_params)
-      respond_save @area
+      respond_action @area
     end
 
     def edit
@@ -25,7 +25,11 @@ module Settings
     end
 
     def update
-      respond_save @area
+      respond_action @area
+    end
+
+    def destroy
+      respond_action @area
     end
 
     private

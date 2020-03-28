@@ -1,12 +1,13 @@
 module ApplicationHelper
-  def respond_save(object, method = nil, parameters = nil)
-    method = params[:action].eql?("create") ? "save" : "update" if method.nil?
-    parameters = params[:controller].split('/').last.singularize + "_params" if method.eql?("update") && parameters.nil?
+  def respond_action(object, **args)
+    @object = object
+    method = args[:method] || params[:action].eql?("create") ? "save" : "update"
+    parameters = args[:parameters] || params[:controller].split('/').last.singularize + "_params" if request.put? || request.patch?
     respond_to do |format|
       if object.send(method, parameters ? send(parameters) : {})
-        format.js { render js: "flashCall('success', 'Se guardo correctamente.');location.reload()"}
+        format.js { render partial: 'shared/action'}
       else
-        format.js { render js: "flashCall('error', '#{object.errors.full_messages.join('<br/>')}')" }
+        format.js { render js: "flashCall('error', '#{@object.errors.full_messages.join('<br/>')}')" }
       end
     end
   end

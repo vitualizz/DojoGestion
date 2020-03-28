@@ -54,8 +54,8 @@ gem 'devise', '~> 4.7'
 # Tenants
 gem 'apartment', github: 'influitive/apartment', branch: 'development'
 
-# Json
-gem 'fast_jsonapi', '~> 1.5'
+# Datatables
+gem 'ajax-datatables-rails', '~> 1.1'
 
 # Paginate
 gem 'will_paginate', '~> 3.1.0'

@@ -10,9 +10,9 @@
     data() {
       return {
         actions: {
-          controller: '/settings/areas',
           actions: [
-            { action: "edit", remote: "true", modal: "true" }
+            { name: "edit", remote: "true", modal: "true" },
+            { name: "destroy", remote: "true", method: "destroy" }
           ]
         },
         fields: [

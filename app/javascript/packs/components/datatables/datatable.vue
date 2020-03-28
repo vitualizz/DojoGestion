@@ -2,7 +2,7 @@
   vuetable(:api-url="api" :fields="fields" @vuetable:loaded="onLoaded")
     template(slot="actions" scope="props")
       .custom-actions
-        a(v-for="(action, index) in c_actions" :data-modal='action.modal' :data-remote='action.remote' :href="getHref(props.rowData.id, action.name)" :method="action.method").ui.basic.button
+        a(v-for="(action, index) in c_actions" :data-modal='action.modal' :data-remote='action.remote' :href="getActionHref(props.rowData.id, action.name)" :data-method="getActionMethod(action)").ui.basic.button
           i( v-if="action.name === 'edit'").el-icon-edit
           i( v-else-if="action.name === 'destroy'").el-icon-delete
           i( v-else, :class="action.icon" )
@@ -29,8 +29,14 @@
       }
     },
     methods: {
-      getHref(id, action) {
-        return this.controller + '/' + id + '/' + action
+      getActionHref(id, action) {
+        var path = (this.controller + '/' + id)
+        if(action === "destroy") { return path }
+        return path + '/' + action
+      },
+      getActionMethod(action) {
+        if(action.name === "destroy" ) { return "delete"}
+        return action.method
       },
       onLoaded() {
         Modal()

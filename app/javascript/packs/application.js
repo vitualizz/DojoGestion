@@ -41,7 +41,7 @@ components.keys().forEach((component) =>{
 $( document ).ready(function() {
   $('template').appendTo('body')
 
-  new Vue({
+  window.app = new Vue({
     el: '#app'
   })
   Modal()

@@ -1,2 +1,7 @@
-flashCall('success', "Se guardo correctamente. <%= @object.class.name %>");
-window.location.reload()
+<% if @args[:table] %>
+  $('.modal').remove()
+  $('#<%= params[:controller].gsub('/', '_') %>_table')[0].__vue__.refresh()
+<% else %>
+  window.location.reload()
+<% end %>
+flashCall("<%= @args.dig(:message, :type) || params[:action].include?('destroy') ? 'warning' : 'success' %>", "<%= t(params[:action], scope: [:activerecord, :success, :actions], fallback: @args.dig(:message, :content)) %>");

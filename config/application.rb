@@ -19,5 +19,7 @@ module Dojo
 
     # I18n Load Path
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
+    config.i18n.fallbacks =[:es, :en]
   end
 end

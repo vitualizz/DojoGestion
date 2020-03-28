@@ -1,5 +1,5 @@
 <template lang='pug'>
-  vuetable(:api-url="api" :fields="fields" @vuetable:loaded="onLoaded")
+  vuetable( :api-url="api" :fields="fields" @vuetable:loaded="onLoaded" )
     template(slot="actions" scope="props")
       .custom-actions
         a(v-for="(action, index) in c_actions" :data-modal='action.modal' :data-remote='action.remote' :href="getActionHref(props.rowData.id, action.name)" :data-method="getActionMethod(action)").ui.basic.button
@@ -24,7 +24,7 @@
     },
     created() {
       if(!!this.custom_actions) {
-        this.controller = this.custom_actions.controller || window.location.pathname
+        this.controller = this.custom_actions.controller || this.api.slice(0, -5)
         this.c_actions = this.custom_actions.actions
       }
     },

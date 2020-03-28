@@ -2,6 +2,11 @@ es:
   form:
     login: Iniciar Sesión
   activerecord:
+    success:
+      actions:
+        create: Se ha creado correctamente.
+        update: Se ha actualizado correctamente.
+        destroy: Se ha eliminado correctamente.
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'

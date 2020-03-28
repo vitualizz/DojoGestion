@@ -6,12 +6,23 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_schema
   before_action :validate_session_new
+  before_action :school
   before_action :setting
+  before_action :set_locale
 
   private
 
   def setting
     @setting = Setting.first
+  end
+
+  def school
+    @school = School.find_by(subdomain: Apartment::Tenant.current)
+  end
+
+  def set_locale
+    lang = params[:lang]
+    I18n.locale = lang || @school.locale.to_sym || :es
   end
 
   protected

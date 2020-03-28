@@ -17,7 +17,7 @@ module Settings
 
     def create
       @area = Area.new(area_params)
-      respond_action @area
+      respond_action @area, table: true
     end
 
     def edit
@@ -25,11 +25,11 @@ module Settings
     end
 
     def update
-      respond_action @area
+      respond_action @area, table: true
     end
 
     def destroy
-      respond_action @area
+      respond_action @area, table: true
     end
 
     private

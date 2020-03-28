@@ -1,3 +1,3 @@
 class Area < ApplicationRecord
-  validates :name, presence: true
+  validates_uniqueness_of :name, presence: true
 end

@@ -2,6 +2,11 @@ en:
   form:
     login: Log In
   activerecord:
+    success:
+      actions:
+        create: Successfully created.
+        update: Successfully updated.
+        destroy: successfully removed.
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'

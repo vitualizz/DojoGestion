@@ -1,8 +1,8 @@
 module ApplicationHelper
   def respond_action(object, **args)
-    @object = object
-    method = args[:method] || params[:action]
-    parameters = args[:parameters] || action_parameters unless method.include?("destroy")
+    @object, @args = object, args
+    method = @args[:method] || params[:action]
+    parameters = @args[:parameters] || action_parameters unless request.delete? || request.post?
     respond_to do |format|
       if object.call_action(method, parameters && send(parameters))
         format.js { render partial: 'shared/action'}

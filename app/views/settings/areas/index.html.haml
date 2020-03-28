@@ -1,5 +1,5 @@
 %h1 Listing areas
 
-%area_datatable{"api": settings_areas_path(format: "json")}
+%area_datatable{id: "settings_areas_table", "api": settings_areas_path(format: "json")}
 
 = link_to "New", new_settings_area_path, remote: true, data: { modal: true }

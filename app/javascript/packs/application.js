@@ -13,7 +13,7 @@ import Vue from 'vue/dist/vue.esm'
 import ElementUI from 'element-ui'
 import TurbolinksAdapter from 'vue-turbolinks'
 import VueSidebarMenu from 'vue-sidebar-menu'
-import Vuetable from 'vuetable-2/dist/vuetable-2'
+import { Vuetable, VuetablePagination } from 'vuetable-2/dist/vuetable-2'
 
 import "@fortawesome/fontawesome-free/js/fontawesome"
 
@@ -27,7 +27,7 @@ Vue.use(ElementUI)
 Vue.use(VueSidebarMenu)
 
 Vue.component("vuetable", Vuetable);
-Vue.component("vuetable-pagination",  Vuetable.VuetablePagination);
+Vue.component("vuetable-pagination",  VuetablePagination);
 Vue.component("vuetable-pagination-dropdown", Vuetable.VueTablePaginationDropDown);
 Vue.component("vuetable-pagination-info", Vuetable.VueTablePaginationInfo);
 

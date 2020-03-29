@@ -1,11 +1,22 @@
 <template lang='pug'>
-  vuetable( :api-url="api" :fields="fields" @vuetable:loaded="onLoaded" )
-    template(slot="actions" scope="props")
-      .custom-actions
-        a(v-for="(action, index) in c_actions" :data-modal='action.modal' :data-remote='action.remote' :href="getActionHref(props.rowData.id, action.name)" :data-method="getActionMethod(action)").ui.basic.button
-          i( v-if="action.name === 'edit'").el-icon-edit
-          i( v-else-if="action.name === 'destroy'").el-icon-delete
-          i( v-else, :class="action.icon" )
+  div
+    nav.pagination.is-centered
+      vuetable-pagination(ref="pagination" @vuetable-pagination:change-page="onChangePage" :css="css.pagination")
+    vuetable(
+      ref="vuetable"
+      :api-url="api"
+      :fields="fields"
+      @vuetable:loaded="onLoaded"
+      pagination-path=""
+      @vuetable:pagination-data="onPaginationData"
+    )
+      template(slot="actions" scope="props")
+        .custom-actions
+          a(v-for="(action, index) in c_actions" :data-modal='action.modal' :data-remote='action.remote' :href="getActionHref(props.rowData.id, action.name)" :data-method="getActionMethod(action)").ui.basic.button
+            i( v-if="action.name === 'edit'").el-icon-edit
+            i( v-else-if="action.name === 'destroy'").el-icon-delete
+            i( v-else, :class="action.icon" )
+
 </template>
 
 <script>
@@ -19,7 +30,23 @@
     data() {
       return {
         c_actions: Array,
-        controller: String
+        controller: String,
+        css: {
+          pagination: {
+            infoClass: 'pull-left',
+            wrapperClass: 'vuetable-pagination pull-right',
+            activeClass: 'is-current',
+            disabledClass: 'disabled',
+            pageClass: 'pagination-link',
+            linkClass: 'pagination-link',
+            icons: {
+              first: '',
+              prev: '',
+              next: '',
+              last: '',
+            },
+          }
+        }
       }
     },
     created() {
@@ -40,6 +67,15 @@
       },
       onLoaded() {
         Modal()
+      },
+      onPaginationData(paginationData) {
+        window.err = paginationData
+        window.asd = this.$refs
+        console.log(this.$refs.pagination.setPaginationData(paginationData))
+        this.$refs.pagination.setPaginationData(paginationData)
+      },
+      onChangePage(page) {
+        this.$refs.vuetable.changePage(page)
       }
     }
   }

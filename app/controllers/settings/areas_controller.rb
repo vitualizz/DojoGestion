@@ -6,7 +6,7 @@ module Settings
       @areas = Area.all
       respond_to do |format|
         format.html
-        format.json { render json: Setting::AreaDatatable.new(params, path: settings_areas_path) }
+        format.json { render json: AreaDatatable.new(params) }
       end
     end
 

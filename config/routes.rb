@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # Main
   resources :areas, only: [:index]
   resources :qualifications, only: [:index]
+  resources :teachers, only: [:index]
 
   # Setting
   resources :settings, only: [:index, :update]

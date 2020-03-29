@@ -5,7 +5,7 @@ class TeacherDatatable < Datatable
     get_raw_records.map do |record|
       {
         id: record.id,
-        name: record.name
+        name: record.fname
       }
     end
   end

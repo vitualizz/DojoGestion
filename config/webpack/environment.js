@@ -1,4 +1,6 @@
 const { environment } = require('@rails/webpacker')
+const coffee =  require('./loaders/coffee')
+const datatables = require('./loaders/datatables')
 const { VueLoaderPlugin } = require('vue-loader')
 const vue = require('./loaders/vue')
 const pug = require('./loaders/pug')
@@ -14,4 +16,6 @@ environment.plugins.prepend('Provide',
 environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.prepend('vue', vue)
 environment.loaders.prepend('pug', pug)
+environment.loaders.prepend('coffee', coffee)
+environment.loaders.append('datatables', datatables)
 module.exports = environment

@@ -1,7 +1,6 @@
 class SettingsController < ApplicationController
 
   def index
-    @areas = Area.all
   end
 
   def update

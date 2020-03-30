@@ -5,14 +5,14 @@ require("channels")
 require("jquery")
 
 // Datatables
-require('datatables.net-bs')(window, $)
-require('datatables.net-buttons-bs')(window, $)
+require('datatables.net-dt')(window, $)
+require('datatables.net-buttons-dt')(window, $)
 require('datatables.net-buttons/js/buttons.colVis.js')(window, $)
 require('datatables.net-buttons/js/buttons.html5.js')(window, $)
 require('datatables.net-buttons/js/buttons.print.js')(window, $)
-require('datatables.net-responsive-bs')(window, $)
+require('datatables.net-responsive-dt')(window, $)
 require('datatables.net-select')(window, $)
-
+require('packs/base/datatable')($)
 
 require("packs/base/api.jdatatable.js.coffee")
 require("packs/functions/flash_messages")

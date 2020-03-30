@@ -1,14 +1,12 @@
+
 window.DataTables =
   Init: ->
-    @UserDatatable()
+    @TeacherDatatable()
 
-  UserDatatable: ->
-    $('#users-datatable').dataTable
-      processing: true
-      serverSide: true
+  TeacherDatatable: ->
+    $('#teacher-datatable').dataTable
       ajax:
         url: $('#users-datatable').data('source')
-      pagingType: 'full_numbers'
       columns: [
         {data: 'id'}
         {data: 'name'}

@@ -17,8 +17,8 @@ require('packs/base/datatable')($)
 require("packs/base/api.jdatatable.js.coffee")
 require("packs/functions/flash_messages")
 
-const string = require("underscore.string");
-const components = require.context("./components", true, /^\.\/.*\.(js|vue)$/);
+require("underscore.string")
+const components = require.context("./components", true, /^\.\/.*\.(js|vue)$/)
 
 import Vue from 'vue/dist/vue.esm'
 import ElementUI from 'element-ui'
@@ -37,13 +37,13 @@ Vue.use(ElementUI)
 Vue.use(VueSidebarMenu)
 
 components.keys().forEach((component) =>{
-  name = component.match(/[\w-]+?(?=\.)/)[0]
+  const name = component.match(/[\w-]+?(?=\.)/)[0]
   component = component.match(/\w.*$/)[0]
   Vue.component(name, () => import(`./components/${component}`))
 })
 
 
-$( document ).ready(function() {
+$(document).ready(function() {
   $('template').appendTo('body')
 
   new Vue({
@@ -51,5 +51,7 @@ $( document ).ready(function() {
   })
 
   Modal()
+
+  // eslint-disable-next-line
   DataTables.Init()
 });

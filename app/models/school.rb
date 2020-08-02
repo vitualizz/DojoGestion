@@ -2,7 +2,7 @@ class School < ApplicationRecord
   validates :name, :email, :locale, presence: true
   validates_uniqueness_of :subdomain, presence: true
 
-  after_create :create_tenant
+  after_create :create_tenant, :create_setting
 
   private
 

@@ -4,6 +4,7 @@ const datatables = require('./loaders/datatables')
 const { VueLoaderPlugin } = require('vue-loader')
 const vue = require('./loaders/vue')
 const pug = require('./loaders/pug')
+const eslint = require('./loaders/eslint')
 
 const webpack = require('webpack')
 environment.plugins.prepend('Provide',
@@ -17,5 +18,6 @@ environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.prepend('vue', vue)
 environment.loaders.prepend('pug', pug)
 environment.loaders.prepend('coffee', coffee)
+environment.loaders.prepend('eslint', eslint)
 environment.loaders.append('datatables', datatables)
 module.exports = environment

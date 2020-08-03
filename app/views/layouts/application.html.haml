@@ -11,7 +11,7 @@
   %body
     #app.is-flex
       - if user_signed_in?
-        %navmenu.is-relative{user: current_user.to_json, navbar: navbar.to_json, "data-turbolinks": "false"}
+        %navmenu.is-relative{':user': current_user.to_json, ':menu': navbar.to_json, "data-turbolinks": "false"}
       %main.full_width
         = yield
     :javascript

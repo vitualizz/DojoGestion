@@ -9,15 +9,14 @@
         type: Object,
         required: true
       },
-      navbar: {
-        type: Object,
+      menu: {
+        type: Array,
         required: true
       }
     },
     data() {
       return {
-        isCollapsible: Boolean,
-        menu: JSON.parse(this.navbar)
+        isCollapsible: Boolean
       }
     },
     created() {

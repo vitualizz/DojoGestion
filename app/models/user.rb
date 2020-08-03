@@ -3,13 +3,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  TYPES = ['student', 'teacher', 'parent']
+  TYPES = ['Student', 'Teacher', 'Parent']
 
   validates :username, uniqueness: true
+  validates_presence_of :fname, :lname, :type
 
   TYPES.each do |type|
-    define_method "is_#{type}?" do
-      self.type.downcase == type
+    define_method "is_#{type.downcase}?" do
+      self.type == type
     end
   end
  

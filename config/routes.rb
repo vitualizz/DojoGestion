@@ -1,15 +1,26 @@
 Rails.application.routes.draw do
 
-  # Devise
-  devise_for :teachers, :students, :parents
-  ["teacher", "student", "parent"].each do |user|
-    devise_scope user.intern do
-      unauthenticated do
-        root 'devise/sessions#new', as: "unauthenticated_#{user}_root"
-      end
+  root 'home#index'
+
+  devise_for :teachers, :students, :parents, skip: [:sessions]
+
+ # ["teacher", "student", "parent"].each do |user|
+ #   devise_scope user.intern do
+ #     unauthenticated do
+ #       root 'devise/sessions#new', as: "unauthenticated_#{user}_root"
+ #     end
+ #   end
+ # end
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
+  devise_scope :user do
+    unauthenticated do
+      get '/login' => 'users/sessions#new'
     end
   end
-  root 'home#index'
+
 
   # Main
   resources :areas, only: [:index]

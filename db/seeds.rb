@@ -12,13 +12,16 @@ if Rails.env.development?
     email: 'columna@school.edu.pe',
     locale: 'es'
   )
+  Apartment::Tenant.switch!('columna')
 
   Student.create(
     email: 'vitualizz@gmail.com',
     fname: 'Lee',
     lname: 'Palacios',
-    username: 'vitualizz',
     document: '22886644',
+    username: 'vitualizz',
+    password: 'p3p3gr1ll0',
+    password_confirmation: 'p3p3gr1ll0',
     genre: 'M'
   )
 
@@ -26,8 +29,10 @@ if Rails.env.development?
     email: 'nicpa@gmail.com',
     fname: 'Nícolas',
     lname: 'Tosirrico',
-    username: 'tosino',
     document: '22886655',
+    username: 'tosino',
+    password: 'p3p3gr1ll0',
+    password_confirmation: 'p3p3gr1ll0',
     genre: 'M'
   )
 
@@ -35,8 +40,10 @@ if Rails.env.development?
     email: 'ferdinando@gmail.com',
     fname: 'Fernando',
     lname: 'Palacios',
-    username: 'samurai',
     document: '22886677',
+    username: 'samurai',
+    password: 'p3p3gr1ll0',
+    password_confirmation: 'p3p3gr1ll0',
     genre: 'M'
   )
 end

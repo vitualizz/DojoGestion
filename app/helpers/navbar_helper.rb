@@ -13,7 +13,7 @@ module NavbarHelper
     end
     menu << { title: "Area", href: areas_path, icon: 'fas fa-book-reader'}
     menu << { title: "Configuración", icon: 'el-icon-s-tools', child: settings_submenu }
-    menu << { title: "Cerrar Session", href: destroy_session_path(current_user), icon: 'fas fa-sign-out-alt', attributes: { "data-method": "delete"}}
+    menu << { title: "Cerrar Session", href: destroy_user_session_path, icon: 'fas fa-sign-out-alt', attributes: { "data-method": "delete"}}
   end
 
   private

@@ -1,7 +1,16 @@
+require('datatables.net-dt') window, $
+require('datatables.net-buttons-dt') window, $
+require('datatables.net-buttons/js/buttons.colVis.js') window, $
+require('datatables.net-buttons/js/buttons.html5.js') window, $
+require('datatables.net-buttons/js/buttons.print.js') window, $
+require('datatables.net-responsive-dt') window, $
+require('datatables.net-select') window, $
+  
 DataTable = $.fn.dataTable
 r = $.fn.dataTableExt
 
-module.exports = ($) ->
+module.exports = (window, $) ->
+  
   $.extend DataTable.defaults,
     dom: "<'columns column-space-between'<'column is-narrow'f><'column is-narrow'p>><'columns'<'column'tr>><'columns column-space-between'<'column is-narrow'l><'column is-narrow'i>>"
     bAutoWidth: false

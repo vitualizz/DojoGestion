@@ -3,13 +3,23 @@
     el-form(
       :action='changeAction'
       method='post'
-      v-model='user'
+      :model='user'
     )
       el-input.is-hidden(
         name='authenticity_token'
-        v-model='authenticity_token'
+        v-model='user.authenticity_token'
       )
-      el-select(v-model='user.type')
+      el-form-item(label='user_type')
+        el-select(
+          v-model='user.type'
+          name="user[type]"
+        )
+          el-option(
+            v-for='(type, index) in types'
+            :label='type'
+            :value='type'
+            :key='index'
+          )
       el-form-item(label='username')
         el-input(
           :name="renameField('username')"
@@ -20,6 +30,8 @@
           :name="renameField('password')"
           v-model='user.password'
         )
+      button.el-button.el-button--primary.el-button--large(type='submit')
+        span Iniciar Sesión
 </template>
 
 <script>
@@ -36,7 +48,7 @@ export default {
       user: {
         username: '',
         password: '',
-        type: 'teacher',
+        type: 'Student',
         authenticity_token: csrfToken,
         remember_me: false
       }
@@ -44,12 +56,12 @@ export default {
   },
   computed: {
     changeAction() {
-      return `/${this.user.type}s/sign_in`
+      return `/users/sign_in`
     }
   },
   methods: {
     renameField (field) {
-      return `${this.user.type}[${field}]`
+      return `user[${field}]`
     }
   }
 }

@@ -3,21 +3,14 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("underscore.string")
 
 // Datatables
-require('datatables.net-dt')(window, $)
-require('datatables.net-buttons-dt')(window, $)
-require('datatables.net-buttons/js/buttons.colVis.js')(window, $)
-require('datatables.net-buttons/js/buttons.html5.js')(window, $)
-require('datatables.net-buttons/js/buttons.print.js')(window, $)
-require('datatables.net-responsive-dt')(window, $)
-require('datatables.net-select')(window, $)
-require('packs/base/datatable')($)
+require('packs/base/datatable')(window, $)
 
 require("packs/base/api.jdatatable.js.coffee")
 require("packs/functions/flash_messages")
 
-require("underscore.string")
 const components = require.context("./components", true, /^\.\/.*\.(js|vue)$/)
 
 import Vue from 'vue/dist/vue.esm'

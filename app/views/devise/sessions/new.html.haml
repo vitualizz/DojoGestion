@@ -1,6 +1,6 @@
 .full_page.is-flex.is-absolute
   .container-form
-    %login
+    %login{':types': User::TYPES.as_json}
 
 -#%template#login
 -#  .box
